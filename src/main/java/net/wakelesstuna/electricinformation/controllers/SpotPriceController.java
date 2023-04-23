@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @RequestMapping("/v1/spot-prices")
@@ -17,14 +18,16 @@ public class SpotPriceController {
 
     private final SpotPriceService spotPriceService;
 
-    @GetMapping("/{date}")
-    public SpotPriceResponse getSpotPrices(@PathVariable final LocalDate date) {
-        return spotPriceService.getSpotPrices(date);
+    @GetMapping
+    @ResponseStatus(OK)
+    public SpotPriceResponse getSpotPrices(@RequestParam final LocalDate date,
+                                           @RequestParam final PriceArea priceArea) {
+        return spotPriceService.getSpotPrices(date, priceArea);
     }
 
-    @PostMapping("/{date}")
+    @PostMapping
     @ResponseStatus(CREATED)
-    public void populateSpotPrices(@PathVariable final LocalDate date,
+    public void populateSpotPrices(@RequestParam final LocalDate date,
                                    @RequestParam final PriceArea priceArea) {
         spotPriceService.populateSpotPrices(date, priceArea);
     }

@@ -25,8 +25,8 @@ public class ScheduledTasksService {
     public void syncWaterFallSpotPrices() {
         LocalDate currentDate = LocalDate.now();
 
-        if (spotPriceRepo.countByTimeStampDay(currentDate) > 0) {
-            log.info("Spot prices for {} already synced.", currentDate);
+        if (spotPriceRepo.countByTimeStampDayAndPriceArea(currentDate, priceArea) > 0) {
+            log.info("Spot prices for {} and area {} already synced.", currentDate, priceArea);
             return;
         }
 

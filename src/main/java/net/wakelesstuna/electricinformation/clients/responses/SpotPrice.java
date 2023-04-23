@@ -6,6 +6,7 @@ import lombok.Builder;
 
 import java.time.LocalDate;
 
+
 @Builder(toBuilder = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SpotPrice(@JsonProperty("TimeStamp") String timeStamp,

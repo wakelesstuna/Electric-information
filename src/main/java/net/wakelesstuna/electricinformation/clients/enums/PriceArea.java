@@ -13,5 +13,14 @@ public enum PriceArea {
     @Getter
     private final String code;
 
+    public static PriceArea getEnumFromCode(String code) {
+        for (PriceArea priceArea : values()) {
+            if (priceArea.code.equals(code)) {
+                return priceArea;
+            }
+        }
+        throw new IllegalArgumentException(String.valueOf(code));
+    }
+
 
 }

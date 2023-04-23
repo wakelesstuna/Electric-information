@@ -20,7 +20,7 @@ application:
   waterfall:
     base-url: "https://www.vattenfall.se/api"
     sync:
-      price-area: SOUTH_MIDDLE_SWEDEN
+      price-area: SOUTH_SWEDEN
       cron: "*/10 * * * * *" # for testing every 10 sec
 
 server:

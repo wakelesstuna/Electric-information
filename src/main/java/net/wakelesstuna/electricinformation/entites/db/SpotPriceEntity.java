@@ -1,10 +1,8 @@
 package net.wakelesstuna.electricinformation.entites.db;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import net.wakelesstuna.electricinformation.clients.enums.PriceArea;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -29,7 +27,7 @@ public class SpotPriceEntity {
     private String timeStampHour;
     private Integer value;
     private String unit;
-    private String priceArea;
+    private PriceArea priceArea;
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp
