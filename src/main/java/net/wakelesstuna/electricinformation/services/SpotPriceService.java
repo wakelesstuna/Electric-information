@@ -36,7 +36,7 @@ public class SpotPriceService {
     }
 
     public void populateSpotPrices(final LocalDate date, final PriceArea priceArea) {
-        long count = spotPriceRepo.countByTimeStampDay(date);
+        long count = spotPriceRepo.countByTimeStampDayAndPriceArea(date, priceArea);
         if (count > 0) {
             throw new SpotPriceException(HttpStatus.BAD_REQUEST, "Prices for date %s already exists.".formatted(date));
         }

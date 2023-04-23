@@ -11,8 +11,6 @@ public interface SpotPriceRepository extends JpaRepository<SpotPriceEntity, Stri
 
     List<SpotPriceEntity> findAllByTimeStampDayAndPriceArea(LocalDate date, PriceArea priceArea);
 
-    long countByTimeStampDay(LocalDate date);
-
     long countByTimeStampDayAndPriceArea(LocalDate date, PriceArea priceArea);
 
 }
